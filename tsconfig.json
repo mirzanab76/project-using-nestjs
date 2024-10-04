@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2021",  // Kamu bisa tetap menggunakan ini jika dibutuhkan
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": true,  // Set true untuk konsistensi casing
+    "esModuleInterop": true  // Menambahkan esModuleInterop untuk impor modul yang lebih baik
+  },
+  "include": ["src/**/*.ts"],  // Tambahkan agar hanya src yang dicompile
+  "exclude": ["node_modules"]  // Jangan compile node_modules
+}
