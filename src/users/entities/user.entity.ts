@@ -8,7 +8,7 @@ export class User {
   id: number;
 
   @Column()
-  nama: string;
+  name: string;
 
   @Column({ unique: true })
   username: string;
@@ -17,7 +17,10 @@ export class User {
   password: string;
 
   @Column()
-  alamat: string;
+  address: string;
+
+  @Column()
+  role_id: number;
 
   @ManyToOne(() => Role, role => role.users)
   @JoinColumn({ name: 'role_id' })

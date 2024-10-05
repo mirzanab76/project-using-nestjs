@@ -31,7 +31,7 @@ export class CreateRolesAndUsersTable1633012345678 implements MigrationInterface
                     generationStrategy: "increment"
                 },
                 {
-                    name: "nama",
+                    name: "name",
                     type: "varchar"
                 },
                 {
@@ -44,7 +44,7 @@ export class CreateRolesAndUsersTable1633012345678 implements MigrationInterface
                     type: "varchar"
                 },
                 {
-                    name: "alamat",
+                    name: "address",
                     type: "varchar"
                 },
                 {
