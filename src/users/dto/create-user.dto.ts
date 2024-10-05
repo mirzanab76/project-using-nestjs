@@ -1,13 +1,21 @@
-import { IsString, IsNotEmpty, MinLength, IsEmail } from 'class-validator';
+import { IsString, IsNotEmpty, MinLength, Min, IsInt } from 'class-validator';
+import { Transform, Type } from 'class-transformer';
+
+export enum UserRole {
+  ADMIN = 'Admin',
+  USER = 'User',
+  MANAGER = 'Manager',
+}
 
 export class CreateUserDto {
   @IsString()
   @IsNotEmpty()
-  nama: string;
+  @Transform(({ value }) => value.trim())
+  name: string;
 
   @IsString()
   @IsNotEmpty()
-  @IsEmail()
+  @Transform(({ value }) => value.trim())
   username: string;
 
   @IsString()
@@ -17,8 +25,20 @@ export class CreateUserDto {
 
   @IsString()
   @IsNotEmpty()
-  alamat: string;
+  address: string;
 
-  @IsNotEmpty()
-  roleId: number;
+  @IsInt()
+  @Min(1)
+  @Type(() => Number)
+  @Transform(({ value }) => {
+    if (value === '') {
+      return undefined;
+    }
+    const parsed = parseInt(value, 10);
+    if (isNaN(parsed)) {
+      return undefined;
+    }
+    return parsed;
+  })
+  role_id: number;
 }

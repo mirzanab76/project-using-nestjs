@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './entities/user.entity';
@@ -17,8 +17,11 @@ export class UsersService {
   ) {}
 
   async create(createUserDto: CreateUserDto): Promise<User> {
-    const { roleId, password, ...userData } = createUserDto;
-    const role = await this.roleRepository.findOne({ where: { id: roleId } });
+    if (createUserDto.role_id === undefined) {
+      throw new BadRequestException('role_id is required and must be a valid integer');
+    }
+    const { role_id, password, ...userData } = createUserDto;
+    const role = await this.roleRepository.findOne({ where: { id: role_id } });
     if (!role) {
       throw new NotFoundException('Role tidak ditemukan');
     }
