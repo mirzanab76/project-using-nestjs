@@ -1,3 +1,6 @@
 1. npm run migration:run -> untuk mengeksekusi migration
 2. npm run migration:revert -> untuk menghapus tabel di database
-3. npx ts-node src/seeds/index.ts -> untuk mengeksekusi seeder
+3. npx typeorm migration:create src/migrations/{CreateProductsTable}  -> untuk membuat tabel baru
+4. npx ts-node src/seeds/index.ts -> untuk mengeksekusi seeder
+5. npm run start:dev -. untuk menjalankan program
+6. DROP TABLE IF EXISTS migrations; -> jalankan di database menggunakan sql (Jika error migration:run nya)

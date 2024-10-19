@@ -6,7 +6,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "target": "ES2021",  // Kamu bisa tetap menggunakan ini jika dibutuhkan
+    "target": "ES2021", 
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
@@ -15,9 +15,9 @@
     "strictNullChecks": false,
     "noImplicitAny": false,
     "strictBindCallApply": false,
-    "forceConsistentCasingInFileNames": true,  // Set true untuk konsistensi casing
-    "esModuleInterop": true  // Menambahkan esModuleInterop untuk impor modul yang lebih baik
+    "forceConsistentCasingInFileNames": true, 
+    "esModuleInterop": true  
   },
-  "include": ["src/**/*.ts"],  // Tambahkan agar hanya src yang dicompile
-  "exclude": ["node_modules"]  // Jangan compile node_modules
+  "include": ["src/**/*.ts"],  
+  "exclude": ["node_modules"]
 }

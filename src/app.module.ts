@@ -3,9 +3,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { UsersModule } from './users/users.module';
 import { RolesModule } from './roles/roles.module';
+import { ProductsModule } from './products/products.module';
 import { User } from './users/entities/user.entity';
 import { Role } from './roles/entities/role.entity';
 import { AuthModule } from './auth/auth.module';
+import { Product } from './products/entities/product.entity';
 
 @Module({
   imports: [
@@ -21,7 +23,7 @@ import { AuthModule } from './auth/auth.module';
         username: configService.get('DB_USERNAME', 'postgres'),
         password: configService.get('DB_PASSWORD', 'password'),
         database: configService.get('DB_NAME', 'nestjs'),
-        entities: [User, Role],
+        entities: [User, Role, Product],
         synchronize: configService.get('DB_SYNCHRONIZE', false),
       }),
       inject: [ConfigService],
@@ -29,6 +31,7 @@ import { AuthModule } from './auth/auth.module';
     UsersModule,
     RolesModule,
     AuthModule,
+    ProductsModule,
   ],
 })
 export class AppModule {}
